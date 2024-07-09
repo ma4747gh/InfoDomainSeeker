@@ -75,25 +75,49 @@ class InfoDomainSeeker:
         self.console.print(json_str)
 
     def initialize_argparse(self):
-        parser = argparse.ArgumentParser(description='InfoDomain Seeker.', epilog='Coded by Mohamed Ahmed (ma4747gh).')
+        parser = argparse.ArgumentParser(
+            description='InfoDomain Seeker: A tool for gathering information about domains.',
+            epilog='Coded by Mohamed Ahmed (ma4747gh).')
 
-        parser.add_argument('-d', '--domain', help='', default=None)
-        parser.add_argument('-dfp', '--domains_file_path', help='', default=None)
+        parser.add_argument('-d', '--domain',
+                            help='Single domain name to gather information about.',
+                            default=None)
 
-        parser.add_argument('-dr', '--dns_resolver', help='', default=None)
-        parser.add_argument('-drfp', '--dns_resolvers_file_path', help='', default=None)
+        parser.add_argument('-dfp', '--domains_file_path',
+                            help='Path to a file containing multiple domain names, each on a new line.',
+                            default=None)
 
-        parser.add_argument('-rt', '--record_type', help='', nargs='*', default=None)
+        parser.add_argument('-dr', '--dns_resolver',
+                            help='IP address of a DNS resolver to use for DNS queries.',
+                            default=None)
 
-        parser.add_argument('-t', '--threads', help='', type=int, default=1)
+        parser.add_argument('-drfp', '--dns_resolvers_file_path',
+                            help='Path to a file containing multiple DNS resolver IP addresses, each on a new line.',
+                            default=None)
 
-        parser.add_argument('-q', '--quiet', help='', action='store_true', default=False)
+        parser.add_argument('-rt', '--record_type',
+                            help='Types of DNS records to query (e.g., A, AAAA, MX, NS).',
+                            nargs='*', default=None)
 
-        parser.add_argument('-p', '--ports', help='', nargs='*', default=None)
+        parser.add_argument('-t', '--threads',
+                            help='Number of threads to use for concurrent processing.',
+                            type=int, default=1)
 
-        parser.add_argument('-o', '--output', help='', default='output.json')
+        parser.add_argument('-q', '--quiet',
+                            help='Suppress non-error messages during execution.',
+                            action='store_true', default=False)
 
-        parser.add_argument('--pdf', help='', default=None)
+        parser.add_argument('-p', '--ports',
+                            help='Ports to check for open status (e.g., 22, 80, 443).',
+                            nargs='*', default=None)
+
+        parser.add_argument('-o', '--output',
+                            help='Path to save the output JSON file.',
+                            default='output.json')
+
+        parser.add_argument('--pdf',
+                            help='Path to save the PDF report file.',
+                            default=None)
 
         args = parser.parse_args()
 
