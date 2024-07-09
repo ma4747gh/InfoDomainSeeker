@@ -21,11 +21,6 @@
     cd InfoDomainSeeker
     ```
 
-2. Install the required dependencies:
-    ```sh
-    pip install -r requirements.txt
-    ```
-
 ## Usage
 
 ### Command Line Arguments
@@ -84,10 +79,6 @@ python info_domain_seeker.py -d example.com --pdf report.pdf
 - `socket`
 - `datetime`
 - `reportlab`
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgements
 
